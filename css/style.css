@@ -1,55 +1,37 @@
 :root {
     --bg-black: #010409;
-    --card-bg: #0d1117;
     --sidebar-color: #030a1c;
     --accent: #0ea5e9;
-    --text-main: #e6edf3;
+    --text-white: #f0f6fc;
     --text-dim: #8b949e;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--bg-black); color: var(--text-main); font-family: 'Inter', sans-serif; display: flex; overflow-x: hidden; }
+body { background: var(--bg-black); color: var(--text-white); font-family: 'Inter', sans-serif; display: flex; }
 
-#particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+/* Particles sirf home section par */
+#particles-js { position: absolute; width: 100%; height: 100vh; z-index: 0; pointer-events: none; }
 
-/* Sidebar Layout */
-.sidebar { width: 280px; height: 100vh; background: var(--sidebar-color); position: fixed; z-index: 100; border-right: 1px solid #161b22; }
-.sidebar-content { padding: 40px 25px; text-align: center; }
-.profile-frame { width: 130px; height: 130px; margin: 0 auto 20px; border-radius: 50%; border: 3px solid var(--accent); padding: 5px; box-shadow: 0 0 20px rgba(14, 165, 233, 0.3); }
-.profile-pic { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
-.brand-name { font-size: 1.5rem; font-weight: 800; color: var(--accent); margin-bottom: 10px; }
+.sidebar { width: 280px; height: 100vh; background: var(--sidebar-color); position: fixed; border-right: 1px solid #161b22; z-index: 10; }
+.main-wrapper { margin-left: 280px; width: calc(100% - 280px); position: relative; z-index: 5; }
 
-.nav-menu ul { list-style: none; text-align: left; margin-top: 40px; }
-.nav-menu ul li a { color: var(--text-dim); text-decoration: none; display: block; padding: 12px 15px; border-radius: 8px; font-size: 0.95rem; margin-bottom: 8px; transition: 0.3s; }
-.nav-menu ul li a i { width: 25px; }
-.nav-menu ul li a:hover, .nav-menu ul li a.active { background: #0ea5e915; color: var(--accent); }
-
-/* Main Content Wrapper */
-.main-wrapper { margin-left: 280px; width: calc(100% - 280px); position: relative; z-index: 2; }
-.inner-section { padding: 80px 10%; }
-
-/* Hero Section */
+/* Section Styling */
+.inner-section { padding: 80px 10%; border-bottom: 1px solid #161b22; background: var(--bg-black); }
 .hero-section { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
-.glitch-name { font-size: 5.5rem; font-weight: 800; background: linear-gradient(90deg, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.typing-container { font-size: 1.4rem; color: var(--text-dim); margin: 15px 0 40px; }
-#typed { color: var(--accent); font-weight: 600; text-decoration: underline; }
 
-/* Project Cards Design (The Heart of the Clone) */
-.project-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 40px; }
-.project-card { background: var(--card-bg); border-radius: 12px; border: 1px solid #30363d; overflow: hidden; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-.project-card:hover { transform: translateY(-10px) scale(1.02); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+/* Modal Design */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); overflow-y: auto; }
+.modal-content { background: #0d1117; margin: 3% auto; padding: 40px; width: 90%; border-radius: 20px; border: 1px solid var(--accent); position: relative; }
+.modal-layout { display: flex; gap: 40px; }
+.modal-left { flex: 1.5; }
+.modal-right { flex: 1; border-left: 1px solid #30363d; padding-left: 30px; }
 
-.project-media { position: relative; height: 210px; overflow: hidden; }
-.project-media img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-.media-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 10, 28, 0.8); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; }
-.project-card:hover .media-overlay { opacity: 1; }
-.view-details { background: var(--accent); color: white; border: none; padding: 10px 25px; border-radius: 50px; cursor: pointer; font-weight: 600; }
+.modal-main-img { width: 100%; border-radius: 10px; margin-bottom: 20px; }
+.modal-video-list video { width: 100%; border-radius: 10px; margin-bottom: 15px; border: 1px solid #30363d; }
+.close-btn { position: absolute; right: 25px; top: 15px; font-size: 40px; color: white; cursor: pointer; }
 
-.project-body { padding: 20px; display: flex; justify-content: space-between; align-items: center; }
-.project-body h3 { font-size: 1.1rem; font-weight: 600; color: var(--text-main); }
-.proj-date { font-size: 0.8rem; color: var(--text-dim); font-style: italic; }
-
-/* Section Title Style */
-.title-line { font-size: 2.2rem; margin-bottom: 25px; display: inline-block; border-bottom: 3px solid var(--accent); padding-bottom: 5px; }
-.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; background: #0d1117; padding: 30px; border-radius: 15px; }
-.skill-group h4 { color: var(--accent); margin-bottom: 5px; }
+/* Timeline Design */
+.timeline-item { border-left: 2px solid var(--accent); padding: 0 0 30px 25px; position: relative; }
+.timeline-item::before { content: ''; position: absolute; left: -7px; top: 0; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; }
+.role { color: var(--accent); font-size: 1.4rem; }
+.designation { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 10px; }

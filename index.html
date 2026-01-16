@@ -21,16 +21,13 @@
             <div class="social-icons">
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
             <nav class="nav-menu">
                 <ul>
-                    <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
                     <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-                    <li><a href="#skills"><i class="fas fa-laptop-code"></i> Skills</a></li>
                     <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-                    <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
-                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
                 </ul>
             </nav>
         </div>
@@ -39,99 +36,112 @@
     <main class="main-wrapper">
         <section id="home" class="hero-section">
             <div class="hero-box">
-                <h1 class="glitch-name">Satyendra</h1>
-                <p class="typing-container">I am experienced in <span id="typed"></span></p>
-                <a href="#projects" class="outline-btn">VIEW PROJECTS <i class="fas fa-arrow-down"></i></a>
+                <h1>Satyendra</h1>
+                <p>I am experienced in <span id="typed"></span></p>
+                <a href="#projects" class="outline-btn">VIEW PROJECTS ↓</a>
             </div>
         </section>
 
         <section id="about" class="inner-section">
             <h2 class="title-line">About</h2>
-            <p class="lead-text">AI and Robotics engineer with hands-on experience developing autonomous navigation, SLAM, and simulation-driven robotic systems.</p>
-            <p class="description">Worked on AMR, humanoid, quadruped platforms using ROS 2, LiDAR, and high-fidelity simulation. Experienced in integrating AI models and reinforcement learning pipelines.</p>
+            <p class="description">AI and Robotics engineer with hands-on experience developing autonomous navigation, SLAM, and simulation-driven robotic systems. Worked on AMR, humanoid, and quadruped platforms using ROS 2, LiDAR, and high-fidelity simulation.</p>
         </section>
 
-        <section id="skills" class="inner-section">
-            <h2 class="title-line">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-group">
-                    <h4><i class="fas fa-chevron-right"></i> Core:</h4>
-                    <span>Python (OOP), C++, C</span>
+        <section id="experience" class="inner-section">
+            <h2 class="title-line">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3 class="role">MuksRobotics</h3>
+                    <p class="designation">Robotics Engineer | April 2025 – December 2025</p>
+                    <ul>
+                        <li>Developed navigation stacks using 2D/3D LiDAR, and RGB-D cameras across AMR and Humanoids.</li>
+                        <li>Implemented multi-sensor navigation on Unitree Go2 Air using RTAB-Map (ROS 2) on NVIDIA Jetson AGX Orin.</li>
+                        <li>Architected a scalable Robot SDK to abstract hardware interfaces.</li>
+                    </ul>
                 </div>
-                <div class="skill-group">
-                    <h4><i class="fas fa-chevron-right"></i> Robotics:</h4>
-                    <span>ROS 2 (Humble/Jazzy), Nav2, RTAB-MAP, MoveIt 2</span>
-                </div>
-                <div class="skill-group">
-                    <h4><i class="fas fa-chevron-right"></i> AI & CV:</h4>
-                    <span>PyTorch, YOLOv8, OpenCV, MediaPipe, LLM</span>
-                </div>
-                <div class="skill-group">
-                    <h4><i class="fas fa-chevron-right"></i> Simulation:</h4>
-                    <span>Isaac Sim, Isaac Lab, Ignition Gazebo</span>
+                <div class="timeline-item">
+                    <h3 class="role">MuksRobotics</h3>
+                    <p class="designation">AI & Robotics Intern | August 2024 – February 2025</p>
+                    <ul>
+                        <li>Built reusable workflows in Gazebo Classic and Ignition Gazebo for mobile and manipulator robots.</li>
+                        <li>Integrated MoveIt 2 for the RoArm-M2-S robotic arm and successfully trained ACT policies.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <section id="projects" class="inner-section">
             <h2 class="title-line">Projects</h2>
-            <p class="section-subtitle">Hands-on implementation of robust systems for the physical world.</p>
-            
             <div class="project-container">
                 <div class="project-card">
                     <div class="project-media">
-                        <img src="https://via.placeholder.com/400x250/030a1c/0ea5e9?text=MuksRobotics+Work" alt="Work">
+                        <img src="https://via.placeholder.com/400x250/030a1c/0ea5e9?text=Robotics+Project" alt="">
                         <div class="media-overlay">
-                            <button class="view-details">View Details</button>
+                            <button class="view-details-btn" onclick="openProjectModal()">View Details</button>
                         </div>
                     </div>
                     <div class="project-body">
-                        <h3><i class="fas fa-caret-right"></i> MuksRobotics Work</h3>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-media">
-                        <img src="https://via.placeholder.com/400x250/030a1c/0ea5e9?text=Autonomous+Navigation" alt="Nav">
-                    </div>
-                    <div class="project-body">
-                        <h3><i class="fas fa-caret-right"></i> Autonomous Navigation</h3>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-media">
-                        <img src="https://via.placeholder.com/400x250/030a1c/0ea5e9?text=Reinforcement+Learning" alt="RL">
-                    </div>
-                    <div class="project-body">
-                        <h3><i class="fas fa-caret-right"></i> Reinforcement Learning</h3>
-                        <span class="proj-date">Dec 2025</span>
+                        <h3>MuksRobotics Work</h3>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeProjectModal()">&times;</span>
+            <div class="modal-layout">
+                <div class="modal-left">
+                    <img src="https://via.placeholder.com/600x350/030a1c/0ea5e9?text=Main+Project+Image" class="modal-main-img">
+                    <div class="modal-text-content">
+                        <h2>Project Information</h2>
+                        <p><strong>Category:</strong> Robotics & AI</p>
+                        <p><strong>Focus:</strong> Simulation, Navigation, Manipulation</p>
+                        <p><strong>Tools:</strong> ROS 2, Gazebo, MoveIt 2, MuJoCo</p>
+                        <p class="modal-desc">Detailed implementation of autonomous navigation systems using SLAM and VLM for object-level understanding.</p>
+                    </div>
+                </div>
+                <div class="modal-right">
+                    <h2>Learnings & Demos</h2>
+                    <div class="modal-video-list">
+                        <div class="video-item">
+                            <p>Simulation Demo:</p>
+                            <video controls><source src="assets/video1.mp4" type="video/mp4"></video>
+                        </div>
+                        <div class="video-item">
+                            <p>Real Robot Deployment:</p>
+                            <video controls><source src="assets/video2.mp4" type="video/mp4"></video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
-        // Typing Effect
+        // Typed Effect
         new Typed('#typed', {
-            strings: ['PyTorch', 'ROS 2', 'SLAM', 'Autonomous Navigation'],
-            typeSpeed: 60,
-            backSpeed: 40,
-            loop: true
+            strings: ['PyTorch', 'ROS 2', 'C++', 'Autonomous Navigation'],
+            typeSpeed: 60, backSpeed: 40, loop: true
         });
 
-        // Particles Effect
+        // Particles Config (Radius set to 1.5 for tiny points)
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 100 },
+                "number": { "value": 150 },
+                "size": { "value": 1.5 },
                 "color": { "value": "#0ea5e9" },
-                "line_linked": { "enable": true, "distance": 150, "color": "#0ea5e9", "opacity": 0.2, "width": 1 },
-                "move": { "enable": true, "speed": 1.5 }
+                "line_linked": { "enable": true, "distance": 150, "color": "#0ea5e9", "opacity": 0.15 },
+                "move": { "enable": true, "speed": 1 }
             }
         });
+
+        // Modal Controls
+        function openProjectModal() { document.getElementById('projectModal').style.display = 'block'; }
+        function closeProjectModal() { document.getElementById('projectModal').style.display = 'none'; }
     </script>
 </body>
 </html>
