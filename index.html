@@ -3,66 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Satyendra | Portfolio</title>
+    <title>Satyendra | Robotics & AI Engineer</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
+    <div id="particles-js"></div>
+
     <aside class="sidebar">
-        <div class="profile-section">
-            <img src="assets/images/profile.jpg" alt="Satyendra" class="profile-pic">
-            <h2>Satyendra</h2>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
+        <div class="sidebar-content">
+            <div class="profile-frame">
+                <img src="assets/images/profile.jpg" alt="Satyendra" class="profile-pic">
             </div>
+            <h1 class="brand-name">Satyendra</h1>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                    <li><a href="#skills"><i class="fas fa-laptop-code"></i> Skills</a></li>
+                    <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+                    <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-                <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
-                <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-                <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
-            </ul>
-        </nav>
     </aside>
 
-    <main class="content">
-        <section id="home" class="hero">
-            <h1>Satyendra</h1>
-            <p>I am experienced in <span>Full Stack Development</span></p>
-            <button class="btn">View Projects ↓</button>
+    <main class="main-wrapper">
+        <section id="home" class="hero-section">
+            <div class="hero-box">
+                <h1 class="glitch-name">Satyendra</h1>
+                <p class="typing-container">I am experienced in <span id="typed"></span></p>
+                <a href="#projects" class="outline-btn">VIEW PROJECTS <i class="fas fa-arrow-down"></i></a>
+            </div>
         </section>
 
-        <section id="skills">
-            <h2>Technical Skills</h2>
+        <section id="about" class="inner-section">
+            <h2 class="title-line">About</h2>
+            <p class="lead-text">AI and Robotics engineer with hands-on experience developing autonomous navigation, SLAM, and simulation-driven robotic systems.</p>
+            <p class="description">Worked on AMR, humanoid, quadruped platforms using ROS 2, LiDAR, and high-fidelity simulation. Experienced in integrating AI models and reinforcement learning pipelines.</p>
+        </section>
+
+        <section id="skills" class="inner-section">
+            <h2 class="title-line">Technical Skills</h2>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Core:</h3>
-                    <p>Python, HTML, CSS, JavaScript</p>
+                <div class="skill-group">
+                    <h4><i class="fas fa-chevron-right"></i> Core:</h4>
+                    <span>Python (OOP), C++, C</span>
                 </div>
-                <div class="skill-category">
-                    <h3>Tools:</h3>
-                    <p>Git, GitHub, VS Code</p>
+                <div class="skill-group">
+                    <h4><i class="fas fa-chevron-right"></i> Robotics:</h4>
+                    <span>ROS 2 (Humble/Jazzy), Nav2, RTAB-MAP, MoveIt 2</span>
+                </div>
+                <div class="skill-group">
+                    <h4><i class="fas fa-chevron-right"></i> AI & CV:</h4>
+                    <span>PyTorch, YOLOv8, OpenCV, MediaPipe, LLM</span>
+                </div>
+                <div class="skill-group">
+                    <h4><i class="fas fa-chevron-right"></i> Simulation:</h4>
+                    <span>Isaac Sim, Isaac Lab, Ignition Gazebo</span>
                 </div>
             </div>
         </section>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project-grid">
+        <section id="projects" class="inner-section">
+            <h2 class="title-line">Projects</h2>
+            <p class="section-subtitle">Hands-on implementation of robust systems for the physical world.</p>
+            
+            <div class="project-container">
                 <div class="project-card">
-                    <img src="assets/images/project1.jpg" alt="Project">
-                    <div class="project-info">
-                        <h3>My Portfolio Work</h3>
-                        <button>View Details</button>
+                    <div class="project-media">
+                        <img src="https://via.placeholder.com/400x250/030a1c/0ea5e9?text=MuksRobotics+Work" alt="Work">
+                        <div class="media-overlay">
+                            <button class="view-details">View Details</button>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3><i class="fas fa-caret-right"></i> MuksRobotics Work</h3>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-media">
+                        <img src="https://via.placeholder.com/400x250/030a1c/0ea5e9?text=Autonomous+Navigation" alt="Nav">
+                    </div>
+                    <div class="project-body">
+                        <h3><i class="fas fa-caret-right"></i> Autonomous Navigation</h3>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-media">
+                        <img src="https://via.placeholder.com/400x250/030a1c/0ea5e9?text=Reinforcement+Learning" alt="RL">
+                    </div>
+                    <div class="project-body">
+                        <h3><i class="fas fa-caret-right"></i> Reinforcement Learning</h3>
+                        <span class="proj-date">Dec 2025</span>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        // Typing Effect
+        new Typed('#typed', {
+            strings: ['PyTorch', 'ROS 2', 'SLAM', 'Autonomous Navigation'],
+            typeSpeed: 60,
+            backSpeed: 40,
+            loop: true
+        });
+
+        // Particles Effect
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 100 },
+                "color": { "value": "#0ea5e9" },
+                "line_linked": { "enable": true, "distance": 150, "color": "#0ea5e9", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 1.5 }
+            }
+        });
+    </script>
 </body>
 </html>
