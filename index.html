@@ -4,18 +4,211 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Satyendra | Robotics & AI Engineer</title>
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-black: #010409;
+            --card-bg: #0d1117;
+            --sidebar-color: #030a1c;
+            --accent: #0ea5e9;
+            --text-main: #e6edf3;
+            --text-dim: #8b949e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: var(--bg-black); 
+            color: var(--text-main); 
+            font-family: 'Inter', sans-serif; 
+            display: flex; 
+            overflow-x: hidden; 
+        }
+
+        #particles-js { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            z-index: 1; 
+            pointer-events: none; 
+        }
+
+        /* Sidebar Layout */
+        .sidebar { 
+            width: 280px; 
+            height: 100vh; 
+            background: var(--sidebar-color); 
+            position: fixed; 
+            z-index: 100; 
+            border-right: 1px solid #161b22; 
+        }
+        .sidebar-content { padding: 40px 25px; text-align: center; }
+        .profile-frame { 
+            width: 130px; 
+            height: 130px; 
+            margin: 0 auto 20px; 
+            border-radius: 50%; 
+            border: 3px solid var(--accent); 
+            padding: 5px; 
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.3); 
+            overflow: hidden;
+        }
+        .profile-pic { 
+            width: 100%; 
+            height: 100%; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            background: #111;
+        }
+        .brand-name { font-size: 1.5rem; font-weight: 800; color: var(--accent); margin-bottom: 10px; }
+        
+        .social-icons { margin-bottom: 20px; }
+        .social-icons a { color: var(--text-dim); margin: 0 10px; font-size: 1.2rem; transition: 0.3s; }
+        .social-icons a:hover { color: var(--accent); }
+
+        .nav-menu ul { list-style: none; text-align: left; margin-top: 40px; }
+        .nav-menu ul li a { 
+            color: var(--text-dim); 
+            text-decoration: none; 
+            display: block; 
+            padding: 12px 15px; 
+            border-radius: 8px; 
+            font-size: 0.95rem; 
+            margin-bottom: 8px; 
+            transition: 0.3s; 
+        }
+        .nav-menu ul li a i { width: 25px; }
+        .nav-menu ul li a:hover, .nav-menu ul li a.active { 
+            background: rgba(14, 165, 233, 0.1); 
+            color: var(--accent); 
+        }
+
+        /* Main Content Wrapper */
+        .main-wrapper { margin-left: 280px; width: calc(100% - 280px); position: relative; z-index: 2; }
+        .inner-section { padding: 80px 10%; border-bottom: 1px solid #161b22; }
+
+        /* Hero Section */
+        .hero-section { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
+        .hero-box h1 { font-size: 4rem; font-weight: 800; margin-bottom: 10px; }
+        .hero-box p { font-size: 1.5rem; color: var(--text-dim); }
+        #typed { color: var(--accent); font-weight: 600; border-bottom: 2px solid var(--accent); }
+        
+        .outline-btn { 
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .outline-btn:hover { background: var(--accent); color: white; }
+
+        /* About & Experience */
+        .title-line { font-size: 2.2rem; margin-bottom: 25px; display: inline-block; border-bottom: 3px solid var(--accent); padding-bottom: 5px; }
+        .description { font-size: 1.1rem; line-height: 1.6; color: var(--text-dim); }
+        
+        .timeline { margin-top: 30px; }
+        .timeline-item { margin-bottom: 40px; border-left: 2px solid #30363d; padding-left: 20px; position: relative; }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        .role { color: var(--accent); font-size: 1.3rem; }
+        .designation { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 10px; }
+        .timeline-item ul { margin-left: 20px; color: var(--text-dim); line-height: 1.6; }
+
+        /* Projects Section */
+        .project-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 40px; }
+        .project-card { background: var(--card-bg); border-radius: 12px; border: 1px solid #30363d; overflow: hidden; transition: 0.4s; }
+        .project-card:hover { transform: translateY(-10px); border-color: var(--accent); }
+
+        .project-media { position: relative; height: 210px; background: #000; }
+        .project-media img { width: 100%; height: 100%; object-fit: cover; }
+        .media-overlay { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(3, 10, 28, 0.9); 
+            display: flex; align-items: center; justify-content: center; 
+            opacity: 0; transition: 0.3s; 
+        }
+        .project-card:hover .media-overlay { opacity: 1; }
+        .view-details-btn { background: var(--accent); color: white; border: none; padding: 10px 25px; border-radius: 50px; cursor: pointer; font-weight: 600; }
+
+        .project-body { padding: 20px; }
+
+        /* Updated Modal Styles for Two Columns */
+        .modal { 
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.9); overflow-y: auto; backdrop-filter: blur(5px);
+        }
+        .modal-content { 
+            background: var(--card-bg); margin: 3% auto; padding: 30px; width: 90%; max-width: 1200px; 
+            border-radius: 15px; border: 1px solid #30363d; position: relative;
+        }
+        .close-btn { position: absolute; right: 25px; top: 15px; font-size: 2.5rem; cursor: pointer; color: var(--text-dim); z-index: 10; }
+        
+        .modal-layout { 
+            display: grid; 
+            grid-template-columns: 1.2fr 0.8fr; /* Left (Images/Info) | Right (Videos) */
+            gap: 40px; 
+            margin-top: 20px;
+        }
+
+        /* Left Column: Images & Details */
+        .modal-left { display: flex; flex-direction: column; gap: 20px; }
+        .modal-image-gallery { display: flex; flex-direction: column; gap: 10px; }
+        .modal-main-img { width: 100%; border-radius: 10px; border: 1px solid #30363d; }
+        .image-thumbnails { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .image-thumbnails img { width: 100%; height: 80px; object-fit: cover; border-radius: 5px; cursor: pointer; opacity: 0.7; transition: 0.3s; border: 1px solid transparent; }
+        .image-thumbnails img:hover { opacity: 1; border-color: var(--accent); }
+
+        .modal-info-card { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 10px; }
+        .modal-info-card h2 { color: var(--accent); margin-bottom: 15px; font-size: 1.5rem; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .info-item { margin-bottom: 10px; font-size: 0.95rem; }
+        .info-item strong { color: var(--text-main); }
+        .modal-desc { line-height: 1.6; color: var(--text-dim); margin-top: 15px; }
+
+        /* Right Column: Videos */
+        .modal-right { display: flex; flex-direction: column; gap: 20px; }
+        .modal-right h2 { font-size: 1.5rem; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .video-gallery { display: flex; flex-direction: column; gap: 20px; max-height: 80vh; overflow-y: auto; padding-right: 10px; }
+        .video-item { background: #000; border-radius: 10px; overflow: hidden; border: 1px solid #30363d; }
+        .video-item p { padding: 10px; background: #161b22; font-size: 0.9rem; font-weight: 600; }
+        .video-item video { width: 100%; display: block; }
+        
+        /* Custom Scrollbar for Video Gallery */
+        .video-gallery::-webkit-scrollbar { width: 5px; }
+        .video-gallery::-webkit-scrollbar-track { background: transparent; }
+        .video-gallery::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+        @media (max-width: 992px) {
+            .modal-layout { grid-template-columns: 1fr; }
+            .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid #161b22; }
+            .main-wrapper { margin-left: 0; width: 100%; }
+        }
+    </style>
 </head>
 <body>
 
     <div id="particles-js"></div>
 
+    <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-content">
             <div class="profile-frame">
-                <img src="assets/images/profile.jpg" alt="Satyendra" class="profile-pic">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Satyendra" alt="Satyendra" class="profile-pic">
             </div>
             <h1 class="brand-name">Satyendra</h1>
             <div class="social-icons">
@@ -33,6 +226,7 @@
         </div>
     </aside>
 
+    <!-- Main Content -->
     <main class="main-wrapper">
         <section id="home" class="hero-section">
             <div class="hero-box">
@@ -42,11 +236,13 @@
             </div>
         </section>
 
+        <!-- About Section -->
         <section id="about" class="inner-section">
             <h2 class="title-line">About</h2>
             <p class="description">AI and Robotics engineer with hands-on experience developing autonomous navigation, SLAM, and simulation-driven robotic systems. Worked on AMR, humanoid, and quadruped platforms using ROS 2, LiDAR, and high-fidelity simulation.</p>
         </section>
 
+        <!-- Updated Experience Section with MuksRobotics Data -->
         <section id="experience" class="inner-section">
             <h2 class="title-line">Professional Experience</h2>
             <div class="timeline">
@@ -70,48 +266,67 @@
             </div>
         </section>
 
+        <!-- Projects Section -->
         <section id="projects" class="inner-section">
             <h2 class="title-line">Projects</h2>
             <div class="project-container">
                 <div class="project-card">
                     <div class="project-media">
-                        <img src="https://via.placeholder.com/400x250/030a1c/0ea5e9?text=Robotics+Project" alt="">
+                        <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd05a?q=80&w=800&auto=format&fit=crop" alt="Robotics">
                         <div class="media-overlay">
                             <button class="view-details-btn" onclick="openProjectModal()">View Details</button>
                         </div>
                     </div>
                     <div class="project-body">
                         <h3>MuksRobotics Work</h3>
+                        <p class="designation" style="margin-top:5px;">SLAM & Navigation</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Modal with Updated Layout (Left: Images/Info | Right: Videos) -->
     <div id="projectModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeProjectModal()">&times;</span>
+            
             <div class="modal-layout">
+                <!-- Left Side: Multiple Images and Details -->
                 <div class="modal-left">
-                    <img src="https://via.placeholder.com/600x350/030a1c/0ea5e9?text=Main+Project+Image" class="modal-main-img">
-                    <div class="modal-text-content">
+                    <div class="modal-image-gallery">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800&auto=format&fit=crop" class="modal-main-img" id="mainModalImg">
+                        <div class="image-thumbnails">
+                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800&auto=format&fit=crop" onclick="changeModalImg(this.src)">
+                            <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?q=80&w=800&auto=format&fit=crop" onclick="changeModalImg(this.src)">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop" onclick="changeModalImg(this.src)">
+                        </div>
+                    </div>
+
+                    <div class="modal-info-card">
                         <h2>Project Information</h2>
-                        <p><strong>Category:</strong> Robotics & AI</p>
-                        <p><strong>Focus:</strong> Simulation, Navigation, Manipulation</p>
-                        <p><strong>Tools:</strong> ROS 2, Gazebo, MoveIt 2, MuJoCo</p>
-                        <p class="modal-desc">Detailed implementation of autonomous navigation systems using SLAM and VLM for object-level understanding.</p>
+                        <div class="info-item"><strong>Category:</strong> Robotics & AI</div>
+                        <div class="info-item"><strong>Focus:</strong> Simulation, Navigation, Manipulation</div>
+                        <div class="info-item"><strong>Tools:</strong> ROS 2, Gazebo, MoveIt 2, MuJoCo</div>
+                        <p class="modal-desc">Detailed implementation of autonomous navigation systems using SLAM and VLM for object-level understanding. Worked on integrating high-fidelity simulations with real-world robot deployment.</p>
                     </div>
                 </div>
+
+                <!-- Right Side: Multiple Videos -->
                 <div class="modal-right">
                     <h2>Learnings & Demos</h2>
-                    <div class="modal-video-list">
+                    <div class="video-gallery">
                         <div class="video-item">
-                            <p>Simulation Demo:</p>
+                            <p><i class="fas fa-desktop"></i> Simulation Demo</p>
                             <video controls><source src="assets/video1.mp4" type="video/mp4"></video>
                         </div>
                         <div class="video-item">
-                            <p>Real Robot Deployment:</p>
+                            <p><i class="fas fa-robot"></i> Real Robot Deployment</p>
                             <video controls><source src="assets/video2.mp4" type="video/mp4"></video>
+                        </div>
+                        <div class="video-item">
+                            <p><i class="fas fa-microchip"></i> Hardware Testing</p>
+                            <video controls><source src="assets/video3.mp4" type="video/mp4"></video>
                         </div>
                     </div>
                 </div>
@@ -119,29 +334,56 @@
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
         // Typed Effect
-        new Typed('#typed', {
-            strings: ['PyTorch', 'ROS 2', 'C++', 'Autonomous Navigation'],
-            typeSpeed: 60, backSpeed: 40, loop: true
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            new Typed('#typed', {
+                strings: ['PyTorch', 'ROS 2', 'C++', 'Autonomous Navigation'],
+                typeSpeed: 60, 
+                backSpeed: 40, 
+                loop: true
+            });
 
-        // Particles Config (Radius set to 1.5 for tiny points)
-        particlesJS('particles-js', {
-            "particles": {
-                "number": { "value": 150 },
-                "size": { "value": 1.5 },
-                "color": { "value": "#0ea5e9" },
-                "line_linked": { "enable": true, "distance": 150, "color": "#0ea5e9", "opacity": 0.15 },
-                "move": { "enable": true, "speed": 1 }
-            }
+            // Particles Config (Tiny dots update)
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": { "value": 160 },
+                    "size": { "value": 1 }, /* Chota size (Tiny point) */
+                    "color": { "value": "#0ea5e9" },
+                    "opacity": { "value": 0.5 },
+                    "line_linked": { "enable": true, "distance": 150, "color": "#0ea5e9", "opacity": 0.1 },
+                    "move": { "enable": true, "speed": 0.8 }
+                },
+                "interactivity": {
+                    "events": {
+                        "onhover": { "enable": true, "mode": "grab" }
+                    }
+                }
+            });
         });
 
         // Modal Controls
-        function openProjectModal() { document.getElementById('projectModal').style.display = 'block'; }
-        function closeProjectModal() { document.getElementById('projectModal').style.display = 'none'; }
+        function openProjectModal() { 
+            document.getElementById('projectModal').style.display = 'block'; 
+            document.body.style.overflow = 'hidden'; 
+        }
+        function closeProjectModal() { 
+            document.getElementById('projectModal').style.display = 'none'; 
+            document.body.style.overflow = 'auto'; 
+        }
+
+        // Image Swap in Modal
+        function changeModalImg(src) {
+            document.getElementById('mainModalImg').src = src;
+        }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById('projectModal');
+            if (event.target == modal) { closeProjectModal(); }
+        }
     </script>
 </body>
 </html>
