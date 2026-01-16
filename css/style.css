@@ -1,13 +1,79 @@
+:root {
+    --bg-dark: #020617;
+    --sidebar-bg: #030a1c;
+    --accent-blue: #0ea5e9;
+    --text-white: #f8fafc;
+    --text-dim: #94a3b8;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #333; line-height: 1.6; }
-header { background: #1a1a1a; color: white; min-height: 60vh; padding: 20px 10%; }
-nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
-nav ul { display: flex; list-style: none; }
-nav ul li { margin-left: 20px; }
-nav ul li a { color: white; text-decoration: none; font-weight: bold; }
-.hero { text-align: center; margin-top: 100px; }
-.hero h1 span { color: #007bff; }
-.btn { display: inline-block; background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 20px; }
-section { padding: 50px 10%; }
-h2 { border-bottom: 2px solid #007bff; display: inline-block; margin-bottom: 30px; }
-.card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Inter', sans-serif;
+    display: flex; /* Sidebar aur Content ko side-by-side karne ke liye */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background-color: var(--sidebar-bg);
+    position: fixed;
+    padding: 40px 20px;
+    border-right: 1px solid #1e293b;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-blue);
+    margin-bottom: 15px;
+}
+
+.sidebar h2 { font-size: 1.2rem; margin-bottom: 20px; color: var(--accent-blue); }
+
+nav ul { list-style: none; margin-top: 30px; }
+nav ul li { margin-bottom: 20px; }
+nav ul li a {
+    color: var(--text-dim);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: 0.3s;
+}
+nav ul li a:hover { color: var(--accent-blue); }
+
+/* Main Content Area */
+.content {
+    margin-left: 260px; /* Sidebar ki jagah chhodne ke liye */
+    width: 100%;
+    padding: 0 50px;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 { font-size: 4rem; }
+.hero span { color: var(--accent-blue); }
+
+section { padding: 80px 0; border-bottom: 1px solid #1e293b; }
+
+.skills-grid { display: flex; gap: 40px; margin-top: 20px; }
+
+.project-card {
+    background: #0f172a;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #1e293b;
+    width: 300px;
+}

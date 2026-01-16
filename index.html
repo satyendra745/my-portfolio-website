@@ -5,47 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Satyendra | Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Satyendra.</div>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="hero">
-            <h1>Hi, I'm <span>Satyendra</span></h1>
-            <p>Full Stack Developer | Building digital experiences</p>
-            <a href="#contact" class="btn">Hire Me</a>
-        </div>
-    </header>
 
-    <section id="experience">
-        <h2>Work Experience</h2>
-        <div class="card">
-            <h3>Role Name</h3>
-            <p>Company Name | 2024 - Present</p>
-            <p>Yaha batayein ki aapne kya seekha aur kya achieve kiya.</p>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Project 1</h3>
-                <p>Kiski madad se banaya (HTML, CSS, Git).</p>
-                <a href="#">View Code</a>
+    <aside class="sidebar">
+        <div class="profile-section">
+            <img src="assets/images/profile.jpg" alt="Satyendra" class="profile-pic">
+            <h2>Satyendra</h2>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
             </div>
         </div>
-    </section>
+        <nav>
+            <ul>
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-    <footer>
-        <p>© 2026 Satyendra. Built with ❤️ and GitHub Pages.</p>
-    </footer>
+    <main class="content">
+        <section id="home" class="hero">
+            <h1>Satyendra</h1>
+            <p>I am experienced in <span>Full Stack Development</span></p>
+            <button class="btn">View Projects ↓</button>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Core:</h3>
+                    <p>Python, HTML, CSS, JavaScript</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools:</h3>
+                    <p>Git, GitHub, VS Code</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="assets/images/project1.jpg" alt="Project">
+                    <div class="project-info">
+                        <h3>My Portfolio Work</h3>
+                        <button>View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
 </body>
 </html>
